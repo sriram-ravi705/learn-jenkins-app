@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('build') {
@@ -9,10 +9,11 @@ pipeline {
                 }
             }
             steps {
-                sh '''
+                sh'''
                 ls -lrt
                 node --version
                 npm --version
+                npm install
                 npm run build
                 ls -lrt
                 '''
